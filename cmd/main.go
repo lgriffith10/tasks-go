@@ -30,15 +30,19 @@ func main() {
 
 	switch *commandFlag {
 	case "list":
-		// commands.List()
+		commands.List()
 	case "add":
-		commands.AddTask()
+		err = commands.AddTask()
 	case "done":
 		// commands.MarkDone()
 	case "delete":
 		// commands.Delete()
 	default:
 		fmt.Println("No valid command provided")
+	}
+
+	if err != nil {
+		log.Fatalf("Error executing command %v: [%v]", *commandFlag, err.Error())
 	}
 }
 

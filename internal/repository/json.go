@@ -22,6 +22,11 @@ func (jtr *JsonTaskRepository) Load() (*tasks.TaskList, error) {
 	}
 
 	list := tasks.NewTaskList()
+
+	if len(content) == 0 {
+		return list, nil
+	}
+
 	err = json.Unmarshal(content, list)
 
 	if err != nil {

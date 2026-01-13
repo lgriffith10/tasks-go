@@ -19,3 +19,12 @@ func NewTask(name string) *Task {
 func (t *Task) ChangeDoneStatus() {
 	t.Done = !t.Done
 }
+
+func (t Task) String() string {
+	status := "❌"
+	if t.Done {
+		status = "✅"
+	}
+
+	return status + " " + t.Name
+}

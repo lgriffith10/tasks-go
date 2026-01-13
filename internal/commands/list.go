@@ -13,10 +13,6 @@ func List() {
 	}
 
 	for _, task := range list.Tasks {
-		status := "❌"
-		if task.Done {
-			status = "✅"
-		}
-		println(status, task.Name)
+		fmt.Println(task)
 	}
 }
